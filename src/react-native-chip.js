@@ -31,6 +31,7 @@ export default class ReactNativeChip extends React.PureComponent {
               {text}
             </Text>
             <TouchableOpacity
+                hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}
                 style={[styles.iconWrapper, iconStyle]}
                 onPress={onClose}>
               <Image style={[
