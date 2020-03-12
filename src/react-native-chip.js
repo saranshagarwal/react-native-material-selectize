@@ -36,7 +36,7 @@ export default class ReactNativeChip extends React.PureComponent {
               <Image style={[
                 styles.icon,
                 this.isIOS ? styles.iconIOS : styles.iconAndroid
-              ]} source={require('./images/Close@1x.png')}/>
+              ]} source={require('./images/Close.png')}/>
 
             </TouchableOpacity>
           </View>
