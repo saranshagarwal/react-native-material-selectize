@@ -6,7 +6,8 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  View
+  View,
+  Image
 } from 'react-native';
 
 export default class ReactNativeChip extends React.PureComponent {
@@ -24,24 +25,22 @@ export default class ReactNativeChip extends React.PureComponent {
     const { iconStyle, onClose, style, text } = this.props;
 
     return (
-      <View style={[styles.root, style]}>
-        <View style={styles.container}>
-          <Text style={styles.text} numberOfLines={1}>
-            {text}
-          </Text>
-          <TouchableOpacity
-            style={[styles.iconWrapper, iconStyle]}
-            onPress={onClose}>
-            <Text
-              style={[
+        <View style={[styles.root, style]}>
+          <View style={styles.container}>
+            <Text style={styles.text} numberOfLines={1}>
+              {text}
+            </Text>
+            <TouchableOpacity
+                style={[styles.iconWrapper, iconStyle]}
+                onPress={onClose}>
+              <Image style={[
                 styles.icon,
                 this.isIOS ? styles.iconIOS : styles.iconAndroid
-              ]}>
-              ✕
-            </Text>
-          </TouchableOpacity>
+              ]} source={require('./images/close.png')}/>
+
+            </TouchableOpacity>
+          </View>
         </View>
-      </View>
     );
   }
 }
@@ -50,12 +49,15 @@ const styles = StyleSheet.create({
   root: {
     justifyContent: 'center',
     borderRadius: 50,
-    backgroundColor: '#e0e0e0',
+    backgroundColor: '#F5F5F5',
     paddingHorizontal: 10,
-    paddingVertical: 4,
-    height: 28,
-    marginBottom: 4,
-    marginRight: 4
+    paddingVertical: 6,
+    borderWidth:1,
+    borderColor: '#ADADAD',
+    height: 32,
+    marginRight: 8,
+    paddingRight:4,
+
   },
   container: {
     flexDirection: 'row',
@@ -67,11 +69,7 @@ const styles = StyleSheet.create({
     color: 'rgba(0, 0, 0, 0.87)'
   },
   iconWrapper: {
-    borderRadius: 50,
-    backgroundColor: '#a6a6a6',
-    height: 16,
-    width: 16,
-    overflow: 'hidden',
+
     marginLeft: 4,
     justifyContent: 'center',
     alignItems: 'center'
