@@ -108,6 +108,10 @@ export default class ReactNativeSelectize extends React.Component {
   componentWillReceiveProps(nextProps) {
     const items = this._getNormalizedItems(nextProps);
     const selectedItems = this._getNormalizedSelectedItems(nextProps);
+    if (selectedItems.result.length !== this.state.selectedItems.result  ){
+      this.setState({text: ''})
+    }
+
     this.setState({items, selectedItems});
   }
 
@@ -222,7 +226,6 @@ export default class ReactNativeSelectize extends React.Component {
       const item = items.entities.item.hasOwnProperty(text)
           ? { ...items.entities.item[text] }
           : { [itemId]: text };
-
       selectedItems.result.push(text);
       selectedItems.entities.item[text] = item;
       this._setSelectedItems(selectedItems);
