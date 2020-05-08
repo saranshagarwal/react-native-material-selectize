@@ -426,7 +426,7 @@ export default class ReactNativeSelectize extends React.Component {
                 inputContainerBorderStyle,
                 inputContainerStyle,
                 {borderColor: hasFocus? 'rgba(71, 71, 71,1)': 'rgba(173, 173, 173,1)'},
-                {borderWidth: hasFocus? 2:1}
+                {borderWidth: hasFocus? 1:1}
 
               ]}>
             {selectedItems.result.map(id =>
