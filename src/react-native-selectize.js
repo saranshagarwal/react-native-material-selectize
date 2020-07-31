@@ -45,7 +45,7 @@ export default class ReactNativeSelectize extends React.Component {
       SHOWITEMS.NEVER
     ]),
     autoReflow: PropTypes.bool,
-    isSearchType: PropTypes.bool
+    isSearchType: PropTypes.bool,
     trimOnSubmit: PropTypes.bool,
     renderRow: PropTypes.func,
     renderChip: PropTypes.func,
@@ -109,11 +109,9 @@ export default class ReactNativeSelectize extends React.Component {
   componentWillReceiveProps(nextProps) {
     const items = this._getNormalizedItems(nextProps);
     const selectedItems = this._getNormalizedSelectedItems(nextProps);
-/*
-    if (selectedItems.result.length !== this.state.selectedItems.result  ){
+/*    if (selectedItems.result.length !== this.state.selectedItems.result  ){
       this.setState({text: ''})
-    }
-*/
+    }*/
 
     this.setState({items, selectedItems});
   }
