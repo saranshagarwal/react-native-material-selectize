@@ -11,15 +11,15 @@ declare module 'react-native-material-selectize' {
   type ItemIdObj<ItemId extends string> = { [K in ItemId]: string };
 
   type OverriddenTextInputProps = Omit<
-    TextInputProps,
-    'onChangeText' | 'onSubmitEditing' | 'onFocus' | 'onBlur'
-  > &
-    Partial<{
-      onChangeText: (text: string) => boolean;
-      onSubmitEditing: (text: string) => boolean | undefined;
-      onFocus: (text: string) => void;
-      onBlur: (text: string) => void;
-    }>;
+      TextInputProps,
+      'onChangeText' | 'onSubmitEditing' | 'onFocus' | 'onBlur'
+      > &
+      Partial<{
+        onChangeText: (text: string) => boolean;
+        onSubmitEditing: (text: string) => boolean | undefined;
+        onFocus: (text: string) => void;
+        onBlur: (text: string) => void;
+      }>;
 
   export interface SelectizeProps<ItemId extends string, Item> {
     chipStyle?: StyleProp<ViewStyle>;
@@ -39,31 +39,32 @@ declare module 'react-native-material-selectize' {
     baseColor?: string;
     showItems?: 'onFocus' | 'onTyping' | 'always' | 'never';
     autoReflow?: boolean;
+    isSearchType?: boolean;
     trimOnSubmit?: boolean;
     renderRow?: (
-      itemId: ItemId,
-      onPress: () => void,
-      item: Item & ItemIdObj<ItemId>,
-      style: StyleProp<ViewStyle>
+        itemId: ItemId,
+        onPress: () => void,
+        item: Item & ItemIdObj<ItemId>,
+        style: StyleProp<ViewStyle>
     ) => ReactNode;
     renderChip?: (
-      itemId: ItemId,
-      onClose: () => void,
-      item: Item & ItemIdObj<ItemId>,
-      chipStyle: StyleProp<ViewStyle>,
-      chipIconStyle: StyleProp<ImageStyle>
+        itemId: ItemId,
+        onClose: () => void,
+        item: Item & ItemIdObj<ItemId>,
+        chipStyle: StyleProp<ViewStyle>,
+        chipIconStyle: StyleProp<ImageStyle>
     ) => ReactNode;
     textInputProps?: OverriddenTextInputProps;
     middleComponent?: ReactNode;
     filterOnKey?: string;
     onChangeSelectedItems?: (
-      selectedItems: (Item & ItemIdObj<ItemId>)[]
+        selectedItems: (Item & ItemIdObj<ItemId>)[]
     ) => void;
   }
 
   class Selectize<ItemId extends string, Item> extends Component<
-    SelectizeProps<ItemId, Item>
-  > {
+      SelectizeProps<ItemId, Item>
+      > {
     focus: () => void;
     blur: () => void;
     submit: () => void;
